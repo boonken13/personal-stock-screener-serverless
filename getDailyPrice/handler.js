@@ -35,6 +35,9 @@ module.exports.get = async (event) => {
 
   return {
     statusCode: res && res.statusCode ? res.statusCode : 404,
+    headers: {
+    "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+    },
     body: JSON.stringify(
       {
         data: res && res.result ? res.result : {}
